@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кафе-кондитерская «Павлова» — Куркино, Родионовская 12</title>
+<meta name="description" content="Кафе-кондитерская «Павлова» в Куркино: завтраки, домашняя кухня, кофе с собой и торты на заказ. Родионовская улица, 12. Ежедневно 9:00–21:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF5EE;
+    --cream-2:#F4EADC;
+    --ink:#2E2126;
+    --ink-soft:rgba(46,33,38,0.68);
+    --ink-faint:rgba(46,33,38,0.42);
+    --berry:#9E2B4E;
+    --berry-soft:#D97A97;
+    --pistachio:#7E8F5B;
+    --gold:#C08A2E;
+    --cocoa:#2A1D21;
+    --line:rgba(46,33,38,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Manrope', -apple-system, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .display{ font-family:'Playfair Display', Georgia, serif; font-weight:400; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  section{ padding:96px 24px; position:relative; }
+  .wrap{ max-width:1080px; margin:0 auto; }
+  .eyebrow{
+    font-size:11.5px; letter-spacing:0.24em; text-transform:uppercase;
+    color:var(--berry); font-weight:600; margin-bottom:16px;
+  }
+  .section-head{ text-align:center; margin-bottom:56px; }
+  .section-head h2{ font-size:clamp(30px,4.2vw,48px); line-height:1.1; }
+  .section-head p{ margin:18px auto 0; max-width:520px; color:var(--ink-soft); font-size:16px; line-height:1.65; }
+
+  /* --- header --- */
+  header{
+    position:sticky; top:0; z-index:60;
+    background:rgba(251,245,238,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:1080px; margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:20px;
+  }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand .swirl{ width:34px; height:34px; flex-shrink:0; }
+  .brand .name{ font-size:23px; line-height:1; letter-spacing:0.01em; }
+  .brand .kind{ font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-faint); margin-top:5px; }
+  nav.links{ display:flex; gap:30px; font-size:14.5px; }
+  nav.links a{ color:var(--ink-soft); transition:color .2s; }
+  nav.links a:hover{ color:var(--berry); }
+  .call-btn{
+    border:1px solid var(--berry); color:var(--berry);
+    padding:9px 18px; border-radius:99px; font-size:13.5px; font-weight:600;
+    white-space:nowrap; transition:background .2s, color .2s;
+  }
+  .call-btn:hover{ background:var(--berry); color:#fff; }
+
+  /* --- hero --- */
+  .hero{
+    padding-top:72px; padding-bottom:56px;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% -5%, rgba(217,122,151,0.20), transparent 70%),
+      radial-gradient(ellipse 50% 40% at 90% 20%, rgba(192,138,46,0.12), transparent 70%);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+  }
+  .hero h1{ font-size:clamp(38px,5.6vw,68px); line-height:1.05; margin-bottom:24px; }
+  .hero h1 em{ font-style:italic; color:var(--berry); }
+  .hero .sub{ font-size:17.5px; line-height:1.65; color:var(--ink-soft); max-width:460px; margin-bottom:34px; }
+  .actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:34px; }
+  .btn{
+    padding:14px 28px; border-radius:99px; font-size:14.5px; font-weight:600;
+    transition:transform .2s, box-shadow .2s, background .2s, color .2s;
+    display:inline-flex; align-items:center; gap:9px;
+  }
+  .btn-primary{ background:var(--berry); color:#fff; }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 12px 26px rgba(158,43,78,0.28); }
+  .btn-ghost{ border:1px solid var(--line); color:var(--ink); background:rgba(255,255,255,0.5); }
+  .btn-ghost:hover{ border-color:var(--berry); color:var(--berry); }
+  .btn svg{ width:17px; height:17px; }
+
+  .badges{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+  .badge{
+    display:inline-flex; align-items:center; gap:10px;
+    background:#fff; border:1px solid var(--line);
+    padding:10px 18px; border-radius:99px; font-size:13.5px;
+  }
+  .stars{ color:var(--gold); letter-spacing:2px; font-size:14px; }
+  .badge strong{ font-weight:700; }
+  .badge .muted{ color:var(--ink-faint); }
+  .badge.award{ border-color:rgba(192,138,46,0.45); background:rgba(192,138,46,0.08); color:#8a6318; font-weight:600; }
+
+  .hero-art{ position:relative; }
+  .hero-art svg{ width:100%; height:auto; filter:drop-shadow(0 24px 40px rgba(46,33,38,0.12)); }
+
+  /* --- ticker --- */
+  .ticker-wrap{
+    background:var(--cocoa); color:var(--cream);
+    padding:15px 0; overflow:hidden;
+  }
+  .ticker{
+    display:flex; width:max-content; white-space:nowrap;
+    animation:scroll var(--dur,30s) linear infinite;
+    will-change:transform;
+    font-size:13px; letter-spacing:0.12em; text-transform:uppercase; font-weight:500;
+  }
+  .ticker .sep{ margin:0 34px; color:var(--berry-soft); }
+  @keyframes scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(calc(-1 * var(--shift,50%))); }
+  }
+  @media (prefers-reduced-motion:reduce){ .ticker{ animation:none; } }
+
+  /* --- меню --- */
+  .menu-cats{ display:grid; grid-template-columns:1fr 1fr; gap:26px 56px; }
+  .menu-cat h3{
+    font-family:'Playfair Display',Georgia,serif; font-size:25px; margin-bottom:6px;
+  }
+  .menu-cat .cat-note{ font-size:12.5px; color:var(--ink-faint); margin-bottom:20px; }
+  .dish{ display:flex; align-items:baseline; gap:10px; padding:11px 0; border-bottom:1px dashed var(--line); }
+  .dish:last-child{ border-bottom:none; }
+  .dish .nm{ font-size:15.5px; line-height:1.45; }
+  .dish .dots{ flex:1; border-bottom:1px dotted rgba(46,33,38,0.28); transform:translateY(-4px); min-width:16px; }
+  .dish .pr{ font-size:15px; font-weight:600; white-space:nowrap; color:var(--berry); }
+  .menu-foot{ margin-top:40px; text-align:center; font-size:13.5px; color:var(--ink-faint); }
+
+  /* --- торты (тёмный блок) --- */
+  .cakes{ background:var(--cocoa); color:var(--cream); }
+  .cakes .eyebrow{ color:var(--berry-soft); }
+  .cakes .section-head p{ color:rgba(251,245,238,0.7); }
+  .cake-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:44px; }
+  .cake-card{
+    border:1px solid rgba(251,245,238,0.16);
+    border-radius:4px; padding:30px 26px;
+    background:rgba(251,245,238,0.03);
+    transition:background .25s, border-color .25s;
+  }
+  .cake-card:hover{ background:rgba(251,245,238,0.07); border-color:rgba(217,122,151,0.5); }
+  .cake-card .ic{ width:34px; height:34px; margin-bottom:20px; color:var(--berry-soft); }
+  .cake-card h3{ font-family:'Playfair Display',Georgia,serif; font-size:22px; margin-bottom:12px; }
+  .cake-card p{ font-size:14.5px; line-height:1.7; color:rgba(251,245,238,0.72); }
+  .chips-block{ text-align:center; }
+  .chips-block .lbl{ font-size:11.5px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(251,245,238,0.45); margin-bottom:16px; }
+  .chips{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:30px; }
+  .chip{
+    border:1px solid rgba(251,245,238,0.22); border-radius:99px;
+    padding:8px 17px; font-size:13.5px; color:rgba(251,245,238,0.85);
+  }
+  .cakes .cta{ text-align:center; margin-top:8px; }
+  .btn-tg{ background:var(--berry-soft); color:var(--cocoa); }
+  .btn-tg:hover{ transform:translateY(-2px); box-shadow:0 12px 26px rgba(217,122,151,0.25); }
+
+  /* --- удобства --- */
+  .perks{ background:var(--cream-2); }
+  .perk-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:4px; overflow:hidden; }
+  .perk{ background:var(--cream-2); padding:28px 22px; transition:background .2s; }
+  .perk:hover{ background:#fff; }
+  .perk .ic{ width:26px; height:26px; color:var(--berry); margin-bottom:14px; }
+  .perk h4{ font-size:15.5px; font-weight:600; margin-bottom:7px; }
+  .perk p{ font-size:13.5px; line-height:1.6; color:var(--ink-soft); }
+
+  /* --- отзывы --- */
+  .review-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .review{
+    background:#fff; border:1px solid var(--line); border-radius:4px;
+    padding:30px 26px; position:relative;
+  }
+  .review .stars{ display:block; margin-bottom:14px; }
+  .review p{
+    font-family:'Playfair Display',Georgia,serif; font-style:italic;
+    font-size:16.5px; line-height:1.65; color:var(--ink); margin-bottom:18px;
+  }
+  .review .who{ font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); }
+  .review-note{ text-align:center; margin-top:34px; font-size:12.5px; color:var(--ink-faint); }
+  .rating-summary{
+    display:flex; justify-content:center; align-items:center; gap:26px;
+    flex-wrap:wrap; margin-top:38px;
+    border-top:1px solid var(--line); padding-top:32px;
+  }
+  .rating-summary .big{ font-family:'Playfair Display',Georgia,serif; font-size:44px; line-height:1; }
+  .rating-summary .cols{ display:flex; gap:26px; flex-wrap:wrap; }
+  .rating-summary .col{ font-size:13.5px; color:var(--ink-soft); }
+  .rating-summary .col b{ display:block; font-size:19px; color:var(--ink); font-weight:600; }
+
+  /* --- контакты --- */
+  .contact{ background:var(--cream-2); }
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:start; }
+  .contact h2{ font-family:'Playfair Display',Georgia,serif; font-size:clamp(28px,3.6vw,42px); margin-bottom:26px; }
+  .info-row{ display:flex; gap:18px; padding:18px 0; border-top:1px solid var(--line); }
+  .info-row:last-of-type{ border-bottom:1px solid var(--line); }
+  .info-row .label{ width:96px; flex-shrink:0; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); padding-top:4px; }
+  .info-row .val{ font-size:15.5px; line-height:1.6; }
+  .info-row .val a{ border-bottom:1px solid transparent; transition:border-color .2s, color .2s; }
+  .info-row .val a:hover{ color:var(--berry); border-color:var(--berry); }
+  .info-row .val .hint{ display:block; font-size:13px; color:var(--ink-faint); margin-top:3px; }
+  .socials{ display:flex; gap:12px; margin-top:26px; flex-wrap:wrap; }
+  .soc{
+    display:inline-flex; align-items:center; gap:9px;
+    border:1px solid var(--line); background:#fff; border-radius:99px;
+    padding:11px 20px; font-size:14px; font-weight:600;
+    transition:border-color .2s, color .2s, transform .2s;
+  }
+  .soc:hover{ border-color:var(--berry); color:var(--berry); transform:translateY(-1px); }
+  .soc svg{ width:17px; height:17px; }
+  .map-card{
+    border:1px solid var(--line); border-radius:4px; overflow:hidden; background:#fff;
+  }
+  .map-visual{
+    aspect-ratio:4/3; position:relative;
+    background:
+      repeating-linear-gradient(0deg, rgba(46,33,38,0.05) 0 1px, transparent 1px 38px),
+      repeating-linear-gradient(90deg, rgba(46,33,38,0.05) 0 1px, transparent 1px 38px),
+      linear-gradient(150deg,#F7EFE4,#EFE2D0);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center; padding:26px;
+  }
+  .map-visual::before{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(115deg, transparent 44%, rgba(126,143,91,0.18) 44%, rgba(126,143,91,0.18) 52%, transparent 52%);
+  }
+  .pin{
+    width:20px; height:20px; border-radius:50% 50% 50% 0;
+    background:var(--berry); transform:rotate(-45deg);
+    box-shadow:0 0 0 8px rgba(158,43,78,0.14); position:relative; z-index:2;
+  }
+  .map-visual .addr{ font-size:14px; color:var(--ink-soft); position:relative; z-index:2; line-height:1.5; }
+  .map-card .map-foot{ padding:18px; border-top:1px solid var(--line); text-align:center; }
+  .map-card .map-foot a{ font-size:14px; font-weight:600; color:var(--berry); }
+
+  /* --- footer --- */
+  footer{
+    background:var(--cocoa); color:rgba(251,245,238,0.6);
+    padding:44px 24px; text-align:center; font-size:13px;
+  }
+  footer .fmark{ font-family:'Playfair Display',Georgia,serif; font-size:20px; color:var(--cream); margin-bottom:8px; }
+  footer .fnote{ margin-top:12px; font-size:12px; color:rgba(251,245,238,0.35); }
+
+  /* --- волна-разделитель --- */
+  .wave{ display:block; width:100%; height:44px; }
+
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; gap:40px; }
+    .hero-art{ order:-1; max-width:340px; margin:0 auto; }
+    .menu-cats{ grid-template-columns:1fr; gap:34px; }
+    .cake-grid{ grid-template-columns:1fr; }
+    .perk-grid{ grid-template-columns:1fr 1fr; }
+    .review-grid{ grid-template-columns:1fr; }
+    .contact-grid{ grid-template-columns:1fr; gap:38px; }
+    nav.links{ display:none; }
+    section{ padding:64px 20px; }
+  }
+  @media (max-width:520px){
+    .perk-grid{ grid-template-columns:1fr; }
+    .brand .name{ font-size:20px; }
+    .brand .kind{ font-size:9px; letter-spacing:0.12em; white-space:nowrap; }
+    .brand .swirl{ width:28px; height:28px; }
+    .call-btn{ padding:8px 14px; font-size:12.5px; }
+    .hero{ padding-top:36px; }
+    .hero-art{ max-width:280px; }
+    .actions .btn{ flex:1; justify-content:center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#" class="brand">
+      <svg class="swirl" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" stroke="#9E2B4E" stroke-width="1.2" opacity="0.35"/>
+        <path d="M20 31c-5 0-8-3.2-8-7 0-3.4 2.6-5.6 5.6-5.6 2.6 0 4.4 1.6 4.4 3.6 0 1.7-1.2 2.9-2.7 2.9-1.2 0-2-.8-2-1.8" stroke="#9E2B4E" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="26" cy="14" r="3.2" fill="#D97A97"/>
+        <path d="M29.6 11.2c1.6-1.1 2.6-2.4 2.4-3.2" stroke="#7E8F5B" stroke-width="1.3" stroke-linecap="round"/>
+      </svg>
+      <span>
+        <div class="name display">Павлова</div>
+        <div class="kind">кафе-кондитерская</div>
+      </span>
+    </a>
+    <nav class="links">
+      <a href="#menu">Меню</a>
+      <a href="#cakes">Торты на заказ</a>
+      <a href="#perks">Удобства</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a href="tel:+79153778025" class="call-btn">+7 915 377-80-25</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Куркино · Родионовская, 12</div>
+      <h1 class="display">Кафе, куда идут<br>за <em>завтраком</em><br>и за <em>тортом</em></h1>
+      <p class="sub">Уютный зал, домашняя кухня, кофе с собой и кондитерская, которая печёт торты на заказ — от детского дня рождения до свадьбы.</p>
+      <div class="actions">
+        <a href="tel:+79153778025" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Позвонить
+        </a>
+        <a href="#cakes" class="btn btn-ghost">Заказать торт</a>
+      </div>
+      <div class="badges">
+        <span class="badge">
+          <span class="stars">★★★★★</span>
+          <strong>5,0</strong>
+          <span class="muted">149 оценок на Яндекс Картах</span>
+        </span>
+        <span class="badge award">Хорошее место 2026</span>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <!-- Десерт «Павлова»: меренговое основание, крем, ягоды. Нарисован вручную,
+           чтобы макет не зависел от фотостоков и грузился мгновенно. -->
+      <svg viewBox="0 0 420 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Десерт павлова с ягодами">
+        <ellipse cx="210" cy="352" rx="150" ry="18" fill="#2E2126" opacity="0.07"/>
+        <!-- тарелка -->
+        <ellipse cx="210" cy="330" rx="152" ry="34" fill="#FFFFFF"/>
+        <ellipse cx="210" cy="330" rx="152" ry="34" stroke="#2E2126" stroke-opacity="0.14"/>
+        <ellipse cx="210" cy="326" rx="116" ry="24" stroke="#C08A2E" stroke-opacity="0.4" stroke-width="1.2"/>
+        <!-- меренга -->
+        <path d="M96 300c-6-46 10-92 44-118 26-20 62-24 92-10 38 18 60 60 56 104-2 22-8 36-16 44-30 10-142 12-176-20z" fill="#FFFDF8"/>
+        <path d="M96 300c-6-46 10-92 44-118 26-20 62-24 92-10 38 18 60 60 56 104-2 22-8 36-16 44-30 10-142 12-176-20z" stroke="#E8D9C4" stroke-width="1.4"/>
+        <path d="M118 290c4-16 2-40-2-56M152 302c-2-24-6-56-2-78M188 306c0-30-2-70 2-92M226 304c2-30 4-70 0-92M262 296c2-24 6-52 2-72M296 286c-2-18-6-38-12-52" stroke="#EFE0CB" stroke-width="2.6" stroke-linecap="round"/>
+        <!-- крем -->
+        <path d="M112 214c14-26 44-42 96-42s86 18 100 44c-14 20-52 30-100 30s-84-12-96-32z" fill="#FFF8EE"/>
+        <path d="M112 214c22 16 56 24 96 24s76-8 100-24" stroke="#EADCC7" stroke-width="1.4"/>
+        <!-- ягоды -->
+        <circle cx="166" cy="196" r="20" fill="#9E2B4E"/>
+        <circle cx="212" cy="180" r="24" fill="#C33A5E"/>
+        <circle cx="262" cy="198" r="19" fill="#7A1F3C"/>
+        <circle cx="192" cy="212" r="13" fill="#D97A97"/>
+        <circle cx="240" cy="212" r="12" fill="#B33055"/>
+        <!-- блики на ягодах -->
+        <circle cx="159" cy="189" r="4.5" fill="#FFFFFF" opacity="0.35"/>
+        <circle cx="204" cy="171" r="5.5" fill="#FFFFFF" opacity="0.35"/>
+        <circle cx="256" cy="192" r="4" fill="#FFFFFF" opacity="0.3"/>
+        <!-- мята -->
+        <path d="M292 168c-14 2-24 12-24 24 14 2 26-8 24-24z" fill="#7E8F5B"/>
+        <path d="M292 168c-8 8-14 16-16 24" stroke="#5F6D44" stroke-width="1.2" stroke-linecap="round"/>
+        <!-- пудра -->
+        <circle cx="130" cy="150" r="3" fill="#FFFFFF" opacity="0.9"/>
+        <circle cx="300" cy="132" r="2.4" fill="#FFFFFF" opacity="0.9"/>
+        <circle cx="252" cy="120" r="3.4" fill="#FFFFFF" opacity="0.85"/>
+        <circle cx="176" cy="126" r="2.2" fill="#FFFFFF" opacity="0.85"/>
+        <!-- пар от кофе рядом -->
+        <path d="M348 236c0-10 8-10 8-20s-8-10-8-20" stroke="#C08A2E" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round"/>
+        <path d="M368 244c0-8 6-8 6-16s-6-8-6-16" stroke="#C08A2E" stroke-opacity="0.3" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker"></div>
+</div>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Кухня</div>
+      <h2 class="display">Завтраки, супы и горячее</h2>
+      <p>Европейская и домашняя кухня. Всё, что можно съесть в зале, забрать с собой или заказать домой.</p>
+    </div>
+
+    <div class="menu-cats">
+      <div class="menu-cat">
+        <h3>Завтраки</h3>
+        <div class="cat-note">подаём с открытия, с 9:00</div>
+        <div class="dish"><span class="nm">Бельгийские вафли с томатом и страчателлой</span><span class="dots"></span><span class="pr">510 ₽</span></div>
+        <div class="dish"><span class="nm">Бельгийские вафли с лососем и авокадо</span><span class="dots"></span><span class="pr">750 ₽</span></div>
+        <div class="dish"><span class="nm">Скрембл на вафле с беконом и томатной сальсой</span><span class="dots"></span><span class="pr">640 ₽</span></div>
+      </div>
+
+      <div class="menu-cat">
+        <h3>Супы</h3>
+        <div class="cat-note">варим каждый день</div>
+        <div class="dish"><span class="nm">Уха по-фински со сливками</span><span class="dots"></span><span class="pr">680 ₽</span></div>
+        <div class="dish"><span class="nm">Том Ям</span><span class="dots"></span><span class="pr">620 ₽</span></div>
+        <div class="dish"><span class="nm">Борщ с говяжьей вырезкой</span><span class="dots"></span><span class="pr">540 ₽</span></div>
+        <div class="dish"><span class="nm">Суп тыквенный</span><span class="dots"></span><span class="pr">480 ₽</span></div>
+      </div>
+
+      <div class="menu-cat">
+        <h3>Основные блюда</h3>
+        <div class="cat-note">сытно и по-домашнему</div>
+        <div class="dish"><span class="nm">Бефстроганов из говядины с картофельным пюре</span><span class="dots"></span><span class="pr">920 ₽</span></div>
+      </div>
+
+      <div class="menu-cat">
+        <h3>Боулы</h3>
+        <div class="cat-note">лёгкий обед</div>
+        <div class="dish"><span class="nm">Боул с креветками, манго и кунжутно-имбирным соусом</span><span class="dots"></span><span class="pr">690 ₽</span></div>
+      </div>
+    </div>
+
+    <div class="menu-foot">
+      Полное меню — в кафе и в <a href="https://t.me/konditerskayapavlova" style="color:var(--berry); font-weight:600;">телеграм-канале</a>. Есть детское меню, бабл-чай, кофе с собой и позиции без глютена.
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M0 44V16c120 16 240 20 360 12s240-28 360-28 240 20 360 28 240 4 360-12v28z" fill="#2A1D21"/>
+</svg>
+
+<section class="cakes" id="cakes">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Кондитерская</div>
+      <h2 class="display">Торты на заказ</h2>
+      <p>Обсуждаем начинку, размер и оформление — и отдаём торт к нужной дате, самовывозом или доставкой.</p>
+    </div>
+
+    <div class="cake-grid">
+      <div class="cake-card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6V3M9 3.5c0 1 1.5 1.5 1.5 2.5M4 21h16v-6a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v6z"/><path d="M4 16c1.5 0 1.5 1.5 3 1.5S8.5 16 10 16s1.5 1.5 3 1.5 1.5-1.5 3-1.5 1.5 1.5 3 1.5"/></svg>
+        <h3>Праздничные</h3>
+        <p>Дни рождения, свадьбы, детские праздники и корпоративы. Делаем фигурные торты и торты с фотографией — печатаем изображение прямо на торте.</p>
+      </div>
+      <div class="cake-card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M5 12V8a7 7 0 0 1 14 0v4M4 16h16M7 20h10"/></svg>
+        <h3>Начинки на выбор</h3>
+        <p>Муссовые и бисквитные, песочные и слоёные, суфлейные, творожные, воздушно-ореховые, со взбитыми сливками — подберём под повод и вкус.</p>
+      </div>
+      <div class="cake-card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <h3>Заказ заранее</h3>
+        <p>Согласуем всё в Телеграме или по телефону: эскиз, вес, дату и время. Возможен предзаказ онлайн, самовывоз и доставка.</p>
+      </div>
+    </div>
+
+    <div class="chips-block">
+      <div class="lbl">Поводы</div>
+      <div class="chips">
+        <span class="chip">Свадебные</span>
+        <span class="chip">Детские</span>
+        <span class="chip">На день рождения</span>
+        <span class="chip">С фотографией</span>
+        <span class="chip">Корпоративные</span>
+        <span class="chip">Эксклюзивные</span>
+      </div>
+      <div class="cta">
+        <a href="https://t.me/konditerskayapavlova" class="btn btn-tg" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.6 18.7 19c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.3 12.7l-4.9-1.5c-1-.3-1-1 .2-1.5l19-7.3c.9-.3 1.6.2 1.3 2.2z"/></svg>
+          Написать в Телеграм
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="perks" id="perks">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Чтобы было удобно</div>
+      <h2 class="display">Кафе, куда можно с детьми</h2>
+    </div>
+    <div class="perk-grid">
+      <div class="perk">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12H3z"/><path d="M9 21v-6h6v6"/></svg>
+        <h4>Детская комната</h4>
+        <p>Отдельный уголок для детей и детское меню: родители успевают спокойно поесть.</p>
+      </div>
+      <div class="perk">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 0 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8zM6 2v3M10 2v3M14 2v3"/></svg>
+        <h4>С собой и домой</h4>
+        <p>Можно забрать кофе или обед по дороге, а можно заказать доставку домой.</p>
+      </div>
+      <div class="perk">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+        <h4>Оплата как удобно</h4>
+        <p>Наличные, карта, QR-код. Есть подарочные сертификаты и скидки льготным категориям.</p>
+      </div>
+      <div class="perk">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9M12 9c0-3 2-5 4-5 0 3-2 5-4 5zM12 9C12 6 10 4 8 4c0 3 2 5 4 5zM12 15c0-3 2-5 4-5 0 3-2 5-4 5zM12 15c0-3-2-5-4-5 0 3 2 5 4 5z"/><path d="M4 20 20 4"/></svg>
+        <h4>Без глютена</h4>
+        <p>В меню есть блюда без глютена. Уточните у официанта, что доступно сегодня.</p>
+      </div>
+      <div class="perk">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M7 17V9a5 5 0 0 1 10 0v8M3 21h18"/></svg>
+        <h4>Свой праздник</h4>
+        <p>Небольшой зал до девяти столов можно занять компанией. Со своим напитком тоже можно — есть пробковый сбор.</p>
+      </div>
+      <div class="perk">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="15" height="10" rx="2"/><path d="M16 9h4l3 3v4h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+        <h4>Парковка</h4>
+        <p>Можно подъехать на машине: рядом с кафе есть где припарковаться.</p>
+      </div>
+      <div class="perk">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l7-16 3 8h6"/><circle cx="6" cy="20" r="2"/></svg>
+        <h4>Пандус</h4>
+        <p>Вход доступен на коляске, помещение — частично. Позвоните, если нужна помощь.</p>
+      </div>
+      <div class="perk">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8l-1 4H9L8 2zM7 6h10l1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L7 6z"/></svg>
+        <h4>Бабл-чай</h4>
+        <p>Кроме классического кофе и чая есть бабл-чай — его обычно выбирают дети.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Отзывы</div>
+      <h2 class="display">5,0 по 149 оценкам</h2>
+      <p>Гости чаще всего хвалят десерты, кофе и атмосферу — так и складывается оценка на Яндекс Картах.</p>
+    </div>
+
+    <div class="review-grid">
+      <div class="review">
+        <span class="stars">★★★★★</span>
+        <p>«Заходим сюда завтракать всей семьёй: детям есть чем заняться, а вафли — лучшие в районе.»</p>
+        <div class="who">Гость из Куркино</div>
+      </div>
+      <div class="review">
+        <span class="stars">★★★★★</span>
+        <p>«Заказывали торт на день рождения — сделали ровно по эскизу и отдали вовремя.»</p>
+        <div class="who">Заказ торта</div>
+      </div>
+      <div class="review">
+        <span class="stars">★★★★★</span>
+        <p>«Маленькое уютное место, где помнят, какой кофе ты берёшь.»</p>
+        <div class="who">Постоянный гость</div>
+      </div>
+    </div>
+
+    <div class="rating-summary">
+      <div style="text-align:center">
+        <div class="big">5,0</div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="cols">
+        <div class="col"><b>149</b>оценок</div>
+        <div class="col"><b>111</b>отзывов</div>
+        <div class="col"><b>95%</b>хвалят атмосферу</div>
+        <div class="col"><b>95%</b>хвалят торты</div>
+      </div>
+    </div>
+
+    <div class="review-note">* Цитаты в макете черновые. Заменим на настоящие отзывы с Яндекс Карт, когда согласуете — там их 111.</div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow">Как нас найти</div>
+      <h2>Родионовская, 12</h2>
+      <div class="info-row">
+        <div class="label">Адрес</div>
+        <div class="val">Москва, Родионовская улица, 12<span class="hint">Район Куркино, вход с улицы</span></div>
+      </div>
+      <div class="info-row">
+        <div class="label">Часы</div>
+        <div class="val">Ежедневно 9:00–21:00<span class="hint">Без выходных</span></div>
+      </div>
+      <div class="info-row">
+        <div class="label">Телефон</div>
+        <div class="val"><a href="tel:+79153778025">+7 (915) 377-80-25</a><span class="hint">Заказ столика и тортов</span></div>
+      </div>
+      <div class="socials">
+        <a class="soc" href="https://t.me/konditerskayapavlova" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.6 18.7 19c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.3 12.7l-4.9-1.5c-1-.3-1-1 .2-1.5l19-7.3c.9-.3 1.6.2 1.3 2.2z"/></svg>
+          Телеграм
+        </a>
+        <a class="soc" href="https://wa.me/message/JW7NHGPFBBQNH1" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.3 3.8 1.6.6 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="map-card">
+      <div class="map-visual">
+        <div class="pin"></div>
+        <div class="addr">Родионовская улица, 12<br>Москва, Куркино<br><span style="color:var(--ink-faint)">235 м до остановки «Родионовская улица»</span></div>
+        <div class="addr" style="font-size:12.5px; color:var(--ink-faint)">На макете — схема. На готовом сайте здесь будет живая карта.</div>
+      </div>
+      <div class="map-foot">
+        <a href="https://yandex.ru/maps/org/206888232469/" target="_blank" rel="noopener">Построить маршрут на Яндекс Картах →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fmark">Кафе-кондитерская «Павлова»</div>
+  <div>Москва, Родионовская улица, 12 · Ежедневно 9:00–21:00 · <a href="tel:+79153778025" style="border-bottom:1px solid rgba(251,245,238,0.3)">+7 (915) 377-80-25</a></div>
+  <div class="fnote">Макет сайта · данные взяты с карточки на Яндекс Картах, цены и тексты уточняем перед публикацией</div>
+</footer>
+
+<script>
+  // Бегущая строка: один набор повторяется столько раз, чтобы закрыть ширину
+  // экрана с запасом, а сдвиг за цикл равен ширине ровно одного набора —
+  // тогда лента едет без разрывов и рывка на стыке.
+  (function(){
+    const items = ["Завтраки с 9:00", "Торты на заказ", "Кофе с собой", "Детская комната", "Доставка и самовывоз", "Бабл-чай"];
+    const track = document.getElementById('ticker');
+    const wrap  = track.parentElement;
+    const SPEED = 55; // пикселей в секунду, одинаково на любом экране
+
+    const sep = '<span class="sep">✦</span>';
+    // Разделитель в конце тоже нужен: он становится швом между копиями.
+    const group = items.map(i => `<span>${i}</span>`).join(sep) + sep;
+
+    function build(){
+      track.style.animation = 'none';
+      track.innerHTML = group;
+      const period = track.scrollWidth;
+      if (!period) return;
+      track.innerHTML = group.repeat(Math.ceil(wrap.offsetWidth / period) + 2);
+      track.style.setProperty('--shift', period + 'px');
+      track.style.setProperty('--dur', (period / SPEED) + 's');
+      track.style.animation = '';
+    }
+
+    build();
+    // Шрифт грузится асинхронно и меняет ширину текста — пересчитываем после него.
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(build);
+    let t;
+    addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(build, 200); });
+  })();
+</script>
+
+</body>
+</html>
